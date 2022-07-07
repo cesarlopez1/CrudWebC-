@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+<br /><br />
+<h2>Login</h2>
+
+<div class="row">
+    <form id="frm">
+        <div class="col-lg-6 col-offset-3">
+            Correo electrónico
+            <input type="text" name="correo" />
+            Password
+            <input type="password" name="contrasena" />
+            <input type="submit" class="btn btn-primary" value="Entrar" />
+        </div>
+    </form>
+</div>
+
+@{
+    var a = 1;
+}
+@section scripts{
+    <script>
+    $(document).ready(function () {
+        $("#frm").submit(function (e) {
+            e.preventDefault();
+
+            url = "@Url.Content("~/Home/Enter")"
+            parametros = $(this).serialize();
+
+            $.post(url, parametros, function (data) {
+
+                if (data == "1") {
+                    document.location.href = "@Url.Content("/Cliente")"
+                } else {
+                    alert(data);
+                }
+            })
+        })
+    })
+    </script>
+
+}

@@ -1,0 +1,72 @@
+﻿@model List<ClientesWEBAPP.Models.ViewModels.ListClienteViewModel>
+@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Reporte</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div>
+        <div>
+            <h1 style="text-align: center;"><b>Reporte de Clientes</b></h1>
+        </div><br />
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                Id
+                            </th>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Apellido
+                            </th>
+                            <th>
+                                Edad
+                            </th>
+                            <th>
+                                Correo
+                            </th>
+
+                        </tr>
+                    </thead>
+
+                    @foreach (var i in Model)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@i.Id</td>
+                                <td>@i.Nombre</td>
+                                <td>@i.Apellido</td>
+                                <td>@i.Edad</td>
+                                <td>@i.Correo</td>
+
+                            </tr>
+                        </tbody>
+                    }
+
+                </table>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

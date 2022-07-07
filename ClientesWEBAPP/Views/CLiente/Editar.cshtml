@@ -1,0 +1,42 @@
+﻿
+@model ClientesWEBAPP.Models.ViewModels.ClienteViewModel
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Editar", "Cliente", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(d=>d.Id)
+            <div>
+                @Html.LabelFor(d => d.Nombre)
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Apellido)
+                @Html.TextBoxFor(d => d.Apellido, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Apellido, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Edad)
+                @Html.TextBoxFor(d => d.Edad, "", new { @class = "form-control" , @type = "number" })
+                @Html.ValidationMessageFor(d => d.Edad, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Correo)
+                @Html.TextBoxFor(d => d.Correo, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Correo, null, new { @class = "red" })
+            </div>
+            <br>
+            </br>
+            <div style="text-align:right;">
+                <input type="submit" value="Editar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
